@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Configuration>
+	<Appenders>
+	<!-- Console Appender -->
+	<Console name="Console" target="SYSTEM_OUT">
+		<PatternLayout
+			pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+	</Console>
+
+	<!-- File Appender -->
+	<File name="File" fileName="../smvc/logggs/app.log">
+		<PatternLayout
+			pattern="%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n" />
+	</File>
+	</Appenders>
+	
+	<Loggers>
+		  <Logger name="org.springframework.context" level="debug" additivity="false">
+      		<!-- <AppenderRef ref="Console" level="debug" /> -->
+      		<!-- <AppenderRef ref="File" level="debug" /> -->
+    	</Logger>
+		
+		<Logger name="ua.com.company.controller" level="debug" additivity="true">
+      		<!-- <AppenderRef ref="Console" /> -->
+      		 <AppenderRef ref="File" level="debug"/> 
+    	</Logger>
+    	
+    	<Root level="error">
+      		<!-- <AppenderRef ref="File" level="info"/> -->
+      		<!-- <AppenderRef ref="Console" level="debug" /> -->
+       	</Root>
+    	
+	
+	</Loggers>
+</Configuration>

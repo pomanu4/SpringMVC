@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+ <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"> 
+ <head> 
+     <meta charset="UTF-8"/> 
+     <meta name="viewport" 
+           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/> 
+     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      
+     <link rel="stylesheet" href="css/MainCss.css" />
+     
+     <title>Main page</title> 
+ </head> 
+<body>
+	<p>spring mvc poject message !</p>
+	<span th:text="${mes}">defoult message</span>
+	<br>
+	<p th:text="#{mess.mess}">messmessmess</p>
+	<p th:text="#{mess.title}">defoult title message1</p>
+	<p th:text="#{mess.second}">defoult title message2</p>
+	<br>
+	<a href="?lang=en">eng</a>////<a href="?lang=ua">ukr</a>
+	
+	<br>
+	<form action="showText"  method="post" >
+		<input type="text" placeholder="some text" name="mesage">
+		<input type="submit" value="send">
+	</form>
+	<br>
+	<br>
+	<a href="loadFile1">download 1</a>
+	<br>
+	<br>
+	<form action="upload" method="post" enctype="multipart/form-data">
+		<input type="file" multiple="multiple" name="files">
+		<input type="submit" value="uplo">
+	</form>
+	<br>
+	<br>
+	<a th:href="ref1">REFERENCE</a>
+	<br>
+	<a th:href="save">save person</a>
+	<br>
+	<form action="#" th:action="@{list}" th:object="${person}" method="post">
+		<ul>
+			<li th:each="ele : ${arr}">
+				<span th:text="${ele}">value</span>
+				<input type="checkbox" th:field="${person.hobbies}" th:value="${ele}">
+			</li>
+		</ul>
+		<input type="text" th:field="${person.email}" placeholder="email">
+		<input type="submit" value="sub">
+	</form>
+	<br>
+	<a th:href="@{userpage}">user page</a> <a th:href="@{adminpage}">admin page</a>
+	
+	
+	
+</body>
+</html>
